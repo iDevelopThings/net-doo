@@ -44,11 +44,17 @@ class CategoryController extends Controller
         return redirect()->back()->with('Success', 'Kategorija spašena!');
     }
 
-    public function edit()
+    public function edit($id)
     {
+
         if(! Gate::allows('edit-category')){
             abort(403);
         }
+
+        return view('admin-panel.categories.edit', [
+            'category' => Category::with(['parent_categories', 'child_categories'])->find($id),
+            'categories' => Category::all(['id', 'name'])
+        ]);
     }
 
     public function update()

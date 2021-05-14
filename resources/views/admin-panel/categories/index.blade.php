@@ -23,6 +23,9 @@
                                 <p x-text="'Broj proizvoda: ' + element.products_count" class="text-sm mt-4"></p>
                                 <p x-text="'Pripada kategorijama: ' + element.parent_categories_count" class="text-sm mt-2"></p>
                                 <p x-text="'Podkategorije: ' + element.child_categories_count" class="text-sm mt-2"></p>
+                                <a x-bind:href="'/admin-panel/category/' + element.id + '/edit'">
+                                    <x-icons.edit></x-icons.edit>
+                                </a>
                             </div>
                         </div>
                     </template>
